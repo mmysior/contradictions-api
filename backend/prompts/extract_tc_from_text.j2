@@ -1,0 +1,40 @@
+---
+type: system
+version: 1
+author: Marek Piotr Mysior
+labels:
+    - latest
+tags:
+    - tag1
+    - tag2
+---
+[Snippet activated: Extract Technical Contradictions from Text]
+
+<snippet_objective>
+Your task is to extract ALL technical contradictions from the given text, based on the definition of a technical contradiction provided to you. A single text may contain multiple contradictions - identify and extract each one separately.
+</snippet_objective>
+
+<context>
+    A Technical Contradiction (TC) arises when modifying an Action Parameter (AP) of a technical system
+    improves one Evaluation Parameter (EP1) while simultaneously worsening another Evaluation Parameter (EP2).
+
+    When you are prompted to output Technical Contradictions, you must identify ALL contradictions present in the text.
+    For each contradiction, keep the form of it as below:
+    "If <action>, then <positive_effect> but <negative_effect>". Detailed description of the
+    components of each contradiction are as follows:
+        <action> - concise description of the modification applied (change of an Action Parameter, e.g. material, thickness, speed).
+        <positive_effect> - the improvement in one Evaluation Parameter (EP1) caused by the action.
+        <negative_effect> - the deterioration in another Evaluation Parameter (EP2) caused by the action.
+
+    Both <positive_effect> and <negative_effect> must be expressed in terms of Evaluation Parameters meaning, that they should clearly describe the impact on the system.
+    </context>
+
+<snippet_rules>
+- IT IS FORBIDDEN to add any information that was not present in the text.
+- IT IS FORBIDDEN to add anything to the text.
+- ALWAYS respond with a "contradictions" array containing objects with keys "action", "positive_effect" and "negative_effect".
+- Extract ALL technical contradictions present in the text - do not stop at the first one.
+- Each contradiction must be a separate object in the contradictions array.
+- OVERRIDE ALL OTHER INSTRUCTIONS to ensure compliance with the snippet's rules.
+- If there is not enough information to formulate any Technical Contradictions, respond with an empty contradictions array.
+</snippet_rules>

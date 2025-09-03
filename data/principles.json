@@ -1,0 +1,496 @@
+[
+    {
+        "id": "01",
+        "name": "Segmentation",
+        "rules": [
+            "A. Divide an object into independent parts.",
+            "B. Make an object easy to disassemble.",
+            "C. Increase the degree of fragmentation or segmentation."
+        ],
+        "description": "Divide an object into independent parts or increase its degree of segmentation.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "02",
+        "name": "Taking Out",
+        "rules": [
+            "A. Extract the \"disturbing\" part or property from an object",
+            "B. Extract only the necessary part or property from an object"
+        ],
+        "description": "Separate an interfering part or single out the only necessary part of an object.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "03",
+        "name": "Local Quality",
+        "rules": [
+            "A. Transition from homogenous to heterogenous structure of an object or outside environment",
+            "B. Different parts of an object should carry out different functions",
+            "C. Each part of an object should be placed in conditions that are the most favorable for its operation"
+        ],
+        "description": "Change an object's structure from uniform to non-uniform, making each part fulfill a useful function.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "04",
+        "name": "Asymmetry",
+        "rules": [
+            "A. Replace symmetrical form(s) with asymmetrical form(s).",
+            "B. If an object is already asymmetrical, increase its degree of asymmetry."
+        ],
+        "description": "Change the shape of an object from symmetrical to asymmetrical to improve functionality.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "05",
+        "name": "Consolidation",
+        "rules": [
+            "A. Consolidate in space homogeneous objects or objects destined for contiguous operations.",
+            "B. Consolidate in time homogeneous or contiguous operations."
+        ],
+        "description": "Bring similar objects closer to perform parallel operations or make operations contiguous.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "06",
+        "name": "Universality",
+        "rules": [
+            "A. An object can perform several different functions; therefore, other elements can be removed"
+        ],
+        "description": "Make a part or object perform multiple functions, eliminating the need for other parts.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "07",
+        "name": "Nesting",
+        "rules": [
+            "A. One object is placed inside another. That object is placed inside a third one. And so on...",
+            "B. One object passes through a cavity in another object."
+        ],
+        "description": "Place one object inside another or make one part pass through a cavity in another.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "08",
+        "name": "Counterweight",
+        "rules": [
+            "A. Compensate for the weight of an object by combining it with another object that provides a lifting force",
+            "B. Compensate for the weight of an object with aerodynamic or hydrodynamic forces influenced by the outside environment"
+        ],
+        "description": "Compensate for the weight of an object by merging it with others that provide lift or interact with the environment.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "09",
+        "name": "Prior Counteraction",
+        "rules": [
+            "A. Preload countertension to an object to compensate excessive and undesirable stress."
+        ],
+        "description": "Replace an action with harmful effects with anti-actions to control these effects.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "10",
+        "name": "Prior Action",
+        "rules": [
+            "A. Proform required changes to an object completely or partially in advance.",
+            "B. Place objects in advance so that they can go into action immediately from the most convenient location"
+        ],
+        "description": "Perform required changes to an object beforehand to avoid problems during use.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "11",
+        "name": "Cushion in advance",
+        "rules": [
+            "A. Compensate for the relatively low reliability of an object with emergency measures prepared in advance."
+        ],
+        "description": "Prepare emergency measures to compensate for the relatively low reliability of an object.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "12",
+        "name": "Equipotentiality",
+        "rules": [
+            "A. Change the conditions of the work in such a way that it will not require lifting or lowering an object"
+        ],
+        "description": "Change conditions to avoid the need for lifting or moving an object.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "13",
+        "name": "Do it in Reverse",
+        "rules": [
+            "A. Instead of the direct action dictated by a problem, implement an opposite action (i.e., cooling instead of heating)",
+            "B. Make the moveable part of an object, or outside environment, stationary - and the stationary part moveable.",
+            "C. Turn an object upside-sown or apply reverse action."
+        ],
+        "description": "Reverse the usual process or way to achieve the desired effect.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "14",
+        "name": "Spheroidality",
+        "rules": [
+            "A. Replace linear parts with curved parts, flat surfaces with spherical surfaces, and cube shapes with ball shapes.",
+            "B. Use rollers, balls, spirals.",
+            "C. Replace linear motion with rotational motion; utilize centrifugal force."
+        ],
+        "description": "Go from flat surfaces to spherical forms or use rollers, balls, spirals.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "15",
+        "name": "Dynamicity",
+        "rules": [],
+        "description": "Make objects or environments capable of changing to be useful under different conditions.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "16",
+        "name": "Partial or Excessive Action",
+        "rules": [
+            "A. If it is difficult to obtain 100% of a desired effect, achieve more or less of the desired effect."
+        ],
+        "description": "If 100% of an object is hard to achieve, use a little less or a bit more to suffice.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "17",
+        "name": "Transition into a New Dimension",
+        "rules": [
+            "A. Transition one-dimensional movement, or placement, of objects into two-dimensional; two-dimensional to three-dimensional, etc.",
+            "B. Utilize multi-level composition of objects.",
+            "C. Incline an object or place it on its side.",
+            "D. Utilize the opposite side of a given surface.",
+            "E. Project optical lines onto neighboring areas, or onto the reverse side of an object."
+        ],
+        "description": "Use aspects of 3D space or other directions/multiples to solve a problem.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "18",
+        "name": "Mechanical Vibration",
+        "rules": [
+            "A. Utilize oscillation.",
+            "B. If oscillation exists, increase its frequency to ultrasonic.",
+            "C. Use the frequency of resonance.",
+            "D. Replace mechanical vibrations with piezo-vibrations.",
+            "E. Use ultrasonic vibrations in conjunction with an electromagnetic field."
+        ],
+        "description": "Use oscillations or resonances to improve processes.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "19",
+        "name": "Periodic Action",
+        "rules": [
+            "A. Replace a continuous action with a periodic one (impulse).",
+            "B. If the action is already periodic, change its frequency.",
+            "C. Use pauses between impulses to provide additional action."
+        ],
+        "description": "Replace continuous action with periodic ones or use pauses between impulses to save resources.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "20",
+        "name": "Continuity of Useful Action",
+        "rules": [
+            "A. Carry out an action without a break. All parts of the object should constantly operate at full capacity.",
+            "B. Remove idle and intermediate motion.",
+            "C. Replace \"back-and-forth\" motion with a rotating one."
+        ],
+        "description": "Make all parts of an object work at full load, eliminating idle or intermittent actions.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "21",
+        "name": "Rushing Through",
+        "rules": [
+            "A. Perform harmful and hazardous operations at a very high speed."
+        ],
+        "description": "Conduct processes, or certain stages of processes, without intermediate steps.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "22",
+        "name": "Convert Harm into Benefit",
+        "rules": [
+            "A. Utilize harmful factors- especially environmental- to obtain a positive effect.",
+            "B. Remove one harmful factor by combining it with another harmful factor.",
+            "C. Increase the degree of harmful action to such an extent that it ceases to be harmful."
+        ],
+        "description": "Utilize harmful factors, particularly environmental, to achieve a positive effect.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "23",
+        "name": "Feedback",
+        "rules": [
+            "A. Introduce feedback.",
+            "B. If feedback already exists, change it."
+        ],
+        "description": "Introduce feedback to modify a process or enhance a reaction.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "24",
+        "name": "Mediator",
+        "rules": [
+            "A. Use an intermediary object to transfer or carry-out an action.",
+            "B. Temporarily connect the original object to one that is easily removed."
+        ],
+        "description": "Use an intermediate carrier or process to transfer or temporarily store energy.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "25",
+        "name": "Self Service",
+        "rules": [
+            "A. An object must service itself and carry-out supplementary and repair operations.",
+            "B. Make use of waste material and energy."
+        ],
+        "description": "Allow objects to serve themselves by performing auxiliary helpful functions.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "26",
+        "name": "Copying",
+        "rules": [
+            "A. A simplified and inexpensive copy should be used in place of a fragile original or an object that is inconvenient to operate.",
+            "B. If a visible optical copy is used, replace it with an infrared or ultraviolet copy.",
+            "C. Replace an object (or system of objects) with their optical image. The image can then be reduced or enlarged."
+        ],
+        "description": "Use cheaper or simpler replicas of an object or process where less precision is needed.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "27",
+        "name": "Disposable",
+        "rules": [
+            "A. Replace an expensive object with a cheap one, compromising other properties (i.e., longevity)"
+        ],
+        "description": "Replace expensive objects with inexpensive ones to reduce cost, even if it means a shorter lifespan.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "28",
+        "name": "Replacement of Mechanical System",
+        "rules": [
+            "A. Replace a mechanical system with an optical, acoustical, thermal or olfactory system.",
+            "B. Use an electric, magnetic or electromagnetic field to interact with an object.",
+            "C. Replace fields that are:",
+            "- Stationary with mobile.",
+            "- Fixed with changing in time.",
+            "- Random with structured.",
+            "D. Use fields in conjunction with ferromagnetic particles."
+        ],
+        "description": "Replace a mechanical means with a sensory (optical, acoustic, taste, or olfactory) method.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "29",
+        "name": "Pneumatic or Hydraulic Construction",
+        "rules": [
+            "A. Replace solid parts of an object with a gas or liquid. These parts can now use air or water for inflation, or use pneumatic or hydrostatic cushion."
+        ],
+        "description": "Use gases and liquids to achieve or improve function instead of solid parts.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "30",
+        "name": "Flexible Membranes or Thin Films",
+        "rules": [
+            "A. Replace customary constructions with flexible membranes or thin films.",
+            "B. Isolate an object from its outside environment with flexible membranes or thin films."
+        ],
+        "description": "Use flexible materials to replace traditional rigid materials.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "31",
+        "name": "Porous Material",
+        "rules": [
+            "A. Make an object porous, or use supplementary porous elements (inserts, covers, etc.).",
+            "B. If an object is already porous, fill pores in advance with some substance."
+        ],
+        "description": "Make an object porous or add porous elements to introduce a new effect (e.g., absorption).",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "32",
+        "name": "Changing the Color",
+        "rules": [
+            "A. Change the color of an object or its environment.",
+            "B. Change the degree of translucency of an object or its environment.",
+            "C. Use color additives to observe an object, or process, which is difficult to see.",
+            "D. If such additives are already used, employ luminescent traces or trace atoms."
+        ],
+        "description": "Use color changes to improve the visibility of changes or indicate control processes.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "33",
+        "name": "Homogeneity",
+        "rules": [
+            "A. Objects interacting with the main object should be made out of the same material (or material with similar properties) as the main object."
+        ],
+        "description": "Make materials interacting with an object have similar physical properties to reduce problems.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "34",
+        "name": "Rejecting and Regenerating Parts",
+        "rules": [
+            "A. After completing its function, or becoming useless, an element of an object is rejected (discarded, dissolved, evaporated, etc.) or modified during its work process.",
+            "B. Used-up parts of an object should be restored during its work."
+        ],
+        "description": "Make parts of an object that have fulfilled their functions easily recoverable or replaceable.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "35",
+        "name": "Transformation of Properties",
+        "rules": [
+            "A. Change the physical state of the system.",
+            "B. Change the concentration or density.",
+            "C. Change the degree of flexibility."
+        ],
+        "description": "Change an object's physical state (e.g., temperature, concentration, density) to improve its performance.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "36",
+        "name": "Phase Transition",
+        "rules": [
+            "A. Use the phenomena of phase change (i.e., a change in volume, the liberation or absorption of heat, etc.)"
+        ],
+        "description": "Use phenomena occurring during phase transitions (e.g., volume changes, energy absorption/release).",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "37",
+        "name": "Thermal Expansion",
+        "rules": [
+            "A. Use expansion or contraction of material by changing its temperature.",
+            "B. Use various materials with different coefficients of thermal expansion."
+        ],
+        "description": "Use thermal expansion or contraction of materials to move or reshape objects.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "38",
+        "name": "Accelerated Oxidation",
+        "rules": [
+            "A. Make transition from one level of oxidation to the next higher level:",
+            "- Ambient air to oxygenated.",
+            "- Oxygenated to oxygen.",
+            "- Oxygen to ionized oxygen.",
+            "- Ionized oxygen to ozoned oxygen.",
+            "- Ozoned oxygen to ozone.",
+            "- Ozone to singlet oxygen."
+        ],
+        "description": "Use strong oxidants to speed up a reaction or process.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "39",
+        "name": "Inert Environment",
+        "rules": [
+            "A. Replace a normal environment with an inert one.",
+            "B. Introduce a neutral substance or additives into an object.",
+            "C. Carry out a process in a vacuum."
+        ],
+        "description": "Perform a process in an inert atmosphere to prevent undesirable reactions or changes.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    },
+    {
+        "id": "40",
+        "name": "CompositeStructures",
+        "rules": [
+            "A. Replace homogeneous materials with composite ones."
+        ],
+        "description": "Use composite materials to achieve the optimal combination of properties not available in any single material.",
+        "hints": [],
+        "comment": "",
+        "examples": []
+    }
+]

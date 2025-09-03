@@ -1,0 +1,143 @@
+### Get all parameters
+GET http://localhost:8000/api/v1/parameters/
+Content-Type: application/json
+
+### Get parameter by ID
+GET http://localhost:8000/api/v1/parameters/12
+Content-Type: application/json
+
+### Search parameters (returns scored results)
+GET http://localhost:8000/api/v1/parameters/search?q=strength
+Content-Type: application/json
+
+### Search parameters with more results
+GET http://localhost:8000/api/v1/parameters/search?q=weight&limit=3
+Content-Type: application/json
+
+### Search parameters with maximum results
+GET http://localhost:8000/api/v1/parameters/search?q=strength&limit=10
+Content-Type: application/json
+
+###
+
+### Get all principles
+GET http://localhost:8000/api/v1/principles/
+Content-Type: application/json
+
+### Get principle by ID
+GET http://localhost:8000/api/v1/principles/15
+Content-Type: application/json
+
+### Search principles (returns scored results)
+GET http://localhost:8000/api/v1/principles/search?q=obtained%by%dividing&into%smaller%objects
+Content-Type: application/json
+
+### Search principles with more results
+GET http://localhost:8000/api/v1/principles/search?q=modularity&limit=3
+Content-Type: application/json
+
+### Search principles with maximum results
+GET http://localhost:8000/api/v1/principles/search?q=flexibility&limit=15
+Content-Type: application/json
+
+### Get principle by name (case-insensitive)
+GET http://localhost:8000/api/v1/principles/by-name/Segmentation
+Content-Type: application/json
+
+### Get principle by name with different case
+GET http://localhost:8000/api/v1/principles/by-name/segmentation
+Content-Type: application/json
+
+### Get random principles for inspiration
+GET http://localhost:8000/api/v1/principles/random?limit=3
+Content-Type: application/json
+
+### Get more random principles
+GET http://localhost:8000/api/v1/principles/random?limit=7
+Content-Type: application/json
+
+###
+
+### Matrix lookup for contradiction resolution
+GET http://localhost:8000/api/v1/principles/matrix?improving=1&improving=15&preserving=3&preserving=12
+Content-Type: application/json
+
+###
+
+### Extract technical contradictions with full TRIZ analysis (returns TechnicalContradiction objects with UUIDs, parameters, and principles)
+POST http://localhost:8000/api/v1/contradictions/extract-tc
+Content-Type: application/json
+
+{
+  "description": "We need to make the car lighter to improve fuel efficiency, but lighter materials are more expensive and may compromise safety."
+}
+
+### Extract contradictions with limited parameters (more precise analysis)
+POST http://localhost:8000/api/v1/contradictions/extract-tc?limit=1
+Content-Type: application/json
+
+{
+  "description": "To increase the strength of the material, we need to add more reinforcement fibers, but this makes it heavier and more expensive."
+}
+
+### Extract contradictions with more parameters (broader analysis)
+POST http://localhost:8000/api/v1/contradictions/extract-tc?limit=5
+Content-Type: application/json
+
+{
+  "description": "Making the surface smoother reduces friction and improves efficiency, but it becomes more difficult to grip and handle safely."
+}
+
+### Extract multiple contradictions from complex text
+POST http://localhost:8000/api/v1/contradictions/extract-tc?limit=3
+Content-Type: application/json
+
+{
+  "description": "To increase the strength of the material, we need to add more reinforcement fibers, but this makes it heavier and more expensive. Additionally, making the surface smoother reduces friction and improves efficiency, but it becomes more difficult to grip and handle safely."
+}
+
+### Extract contradictions from patent content (with default parameters)
+POST http://localhost:8000/api/v1/patents/extract
+Content-Type: application/json
+
+{
+  "title": "Lightweight Composite Material with Enhanced Strength Properties",
+  "abstract": "A novel composite material comprising carbon fibers and polymer matrix providing superior strength-to-weight ratio for aerospace applications.",
+  "description": "The present invention relates to composite materials for structural applications. The material combines carbon fiber reinforcement with a thermoplastic polymer matrix. While the addition of carbon fibers significantly increases tensile strength and stiffness, it also increases manufacturing complexity and material cost. The lightweight design improves fuel efficiency in aerospace applications, but the reduced thickness may compromise impact resistance under certain loading conditions."
+}
+
+### Extract contradictions from patent with limited parameters (precise analysis)
+POST http://localhost:8000/api/v1/patents/extract?limit=2
+Content-Type: application/json
+
+{
+  "title": "Lightweight Composite Material with Enhanced Strength Properties",
+  "abstract": "A novel composite material comprising carbon fibers and polymer matrix providing superior strength-to-weight ratio for aerospace applications.",
+  "description": "The present invention relates to composite materials for structural applications. The material combines carbon fiber reinforcement with a thermoplastic polymer matrix."
+}
+
+### Classify patent solutions to TRIZ principles (default: top 10)
+POST http://localhost:8000/api/v1/patents/classify
+Content-Type: application/json
+
+{
+  "title": "Self-Healing Smart Material System",
+  "abstract": "An intelligent material system that automatically detects and repairs micro-cracks using embedded healing agents and shape memory alloys.",
+  "description": "The invention provides a smart material system incorporating shape memory alloy wires and encapsulated healing agents. When damage occurs, the system activates healing mechanisms autonomously. The self-healing capability extends component lifetime and reduces maintenance requirements, but increases initial material complexity and cost. The embedded sensors provide real-time damage monitoring, yet add weight and potential failure points to the system."
+}
+
+### Classify patent with fewer principles (focused analysis)
+POST http://localhost:8000/api/v1/patents/classify?limit=5
+Content-Type: application/json
+
+{
+  "title": "Self-Healing Smart Material System",
+  "abstract": "An intelligent material system that automatically detects and repairs micro-cracks using embedded healing agents and shape memory alloys.",
+  "description": "The invention provides a smart material system incorporating shape memory alloy wires and encapsulated healing agents."
+}
+
+###
+
+### API Health Check
+GET http://localhost:8000/api/v1/utils/health-check
+Content-Type: application/json

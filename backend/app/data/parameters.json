@@ -1,0 +1,238 @@
+{
+    "parameters": [
+        {
+            "id": 1,
+            "name": "Weight of moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 2,
+            "name": "Weight of stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 3,
+            "name": "Length of moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 4,
+            "name": "Length of stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 5,
+            "name": "Area of moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 6,
+            "name": "Area of stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 7,
+            "name": "Volume of moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 8,
+            "name": "Volume of stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 9,
+            "name": "Speed",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 10,
+            "name": "Force",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 11,
+            "name": "Stress or pressure",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 12,
+            "name": "Shape",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 13,
+            "name": "Stability of the object's composition",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 14,
+            "name": "Strength",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 15,
+            "name": "Duration of action by a moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 16,
+            "name": "Duration of action by a stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 17,
+            "name": "Temperature",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 18,
+            "name": "Illumination intensity",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 19,
+            "name": "Use of energy by moving object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 20,
+            "name": "Use of energy by stationary object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 21,
+            "name": "Power",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 22,
+            "name": "Loss of energy",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 23,
+            "name": "Loss of substance",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 24,
+            "name": "Loss of information",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 25,
+            "name": "Loss of time",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 26,
+            "name": "Quantity of substance/the matter",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 27,
+            "name": "Reliability",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 28,
+            "name": "Measurement accuracy",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 29,
+            "name": "Manufacturing precision",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 30,
+            "name": "External harm affects the object",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 31,
+            "name": "Object-generated harmful factors",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 32,
+            "name": "Ease of manufacture",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 33,
+            "name": "Ease of operation",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 34,
+            "name": "Ease of repair",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 35,
+            "name": "Adaptability or versatility",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 36,
+            "name": "Device complexity",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 37,
+            "name": "Difficulty of detecting and measuring",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 38,
+            "name": "Extent of automation",
+            "description": "",
+            "examples": []
+        },
+        {
+            "id": 39,
+            "name": "Productivity",
+            "description": "",
+            "examples": []
+        }
+    ]
+}
