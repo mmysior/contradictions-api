@@ -1,0 +1,204 @@
+################################################################################
+# TRIZ Contradictions API - Demo Guide
+################################################################################
+# This API helps innovators resolve technical contradictions using TRIZ
+# (Theory of Inventive Problem Solving) methodology, enhanced with AI.
+################################################################################
+
+### API Health Check
+# Verify the API is running and responsive
+GET http://localhost:8000/api/v1/utils/health-check
+Content-Type: application/json
+
+################################################################################
+# PART 1: TRIZ FOUNDATIONS - Parameters & Principles
+################################################################################
+# TRIZ uses 39 engineering parameters and 40 inventive principles to
+# systematically resolve technical contradictions. Start here to understand
+# the building blocks of TRIZ methodology.
+################################################################################
+
+### Get All Engineering Parameters
+# View all 39 TRIZ parameters (Weight, Speed, Strength, etc.)
+# Use this to understand which parameters describe your system's characteristics
+GET http://localhost:8000/api/v1/parameters/
+Content-Type: application/json
+
+### Get Specific Parameter by ID
+# Retrieve detailed information about a specific parameter
+# Example: Parameter ID 12 might be "Shape" or another engineering characteristic
+GET http://localhost:8000/api/v1/parameters/12
+Content-Type: application/json
+
+### Get All Inventive Principles
+# View all 40 TRIZ principles (Segmentation, Dynamicity, etc.)
+# These principles suggest solution approaches for resolving contradictions
+GET http://localhost:8000/api/v1/principles/
+Content-Type: application/json
+
+### Get Specific Principle by ID
+# Retrieve detailed information and examples for a specific principle
+# Example: Principle 15 might be "Dynamicity" or another inventive principle
+GET http://localhost:8000/api/v1/principles/15
+Content-Type: application/json
+
+################################################################################
+# PART 2: SEARCH & DISCOVERY
+################################################################################
+# Find relevant parameters and principles using various search methods.
+# Useful when you know what you're looking for but not the exact ID.
+################################################################################
+
+### Search Parameters by Keyword
+# Find parameters related to your engineering challenge
+# Returns scored results - higher scores mean better matches
+# Example: Search for "strength" to find parameters related to structural properties
+GET http://localhost:8000/api/v1/parameters/search?q=strength
+Content-Type: application/json
+
+### Search Parameters with Custom Limit
+# Control how many results you want to see
+# Useful when you need more options to choose from
+GET http://localhost:8000/api/v1/parameters/search?q=weight&limit=3
+Content-Type: application/json
+
+### Search Principles by Keyword
+# Find principles that might apply to your specific situation
+# Example: Search for "modularity" to find principles about dividing systems
+GET http://localhost:8000/api/v1/principles/search?q=modularity&limit=3
+Content-Type: application/json
+
+### Search Principles with Complex Query
+# Use multiple keywords to narrow down relevant principles
+# Example: Finding principles about division and segmentation
+GET http://localhost:8000/api/v1/principles/search?q=obtained%20by%20dividing&limit=5
+Content-Type: application/json
+
+### Get Principle by Name (Case-Insensitive)
+# Direct lookup when you know the principle's name
+# Useful for quickly accessing a specific principle during problem-solving
+GET http://localhost:8000/api/v1/principles/by-name/Segmentation
+Content-Type: application/json
+
+### Get Principle by Name (Lowercase Example)
+# Name matching is case-insensitive for convenience
+GET http://localhost:8000/api/v1/principles/by-name/dynamicity
+Content-Type: application/json
+
+### Get Random Principles for Inspiration
+# Sometimes the best ideas come from unexpected places
+# Use this to explore principles you might not have considered
+# Perfect for brainstorming sessions or when you're stuck
+GET http://localhost:8000/api/v1/principles/random?limit=3
+Content-Type: application/json
+
+### Get More Random Principles
+# Request more principles for broader creative exploration
+GET http://localhost:8000/api/v1/principles/random?limit=7
+Content-Type: application/json
+
+################################################################################
+# PART 3: TRIZ CONTRADICTION MATRIX
+################################################################################
+# The heart of classical TRIZ - resolve contradictions using the proven matrix.
+# Specify which parameters you want to improve and which must be preserved.
+################################################################################
+
+### Matrix Lookup for Contradiction Resolution
+# Resolve technical contradictions using the TRIZ contradiction matrix
+# - improving: parameters you want to improve (e.g., 1=Weight, 15=Durability)
+# - preserving: parameters you must not worsen (e.g., 3=Length, 12=Shape)
+# Returns recommended principles for resolving this specific contradiction
+#
+# Example scenario: "We want to make it lighter and more durable,
+# without increasing size or changing the shape"
+GET http://localhost:8000/api/v1/principles/matrix?improving=1&improving=15&preserving=3&preserving=12
+Content-Type: application/json
+
+################################################################################
+# PART 4: AI-POWERED FEATURES
+################################################################################
+# Leverage AI to automatically extract and formulate technical contradictions
+# from natural language descriptions or patent documents.
+# This is where traditional TRIZ meets modern machine learning.
+################################################################################
+
+## Extract Technical Contradictions from Text
+# Describe your problem in plain language - the AI will identify contradictions
+# and suggest relevant TRIZ parameters and principles
+
+### Example 1: Automotive Lightweight Design
+# Classic trade-off in automotive engineering
+# AI identifies: Weight vs. Cost and Safety contradictions
+POST http://localhost:8000/api/v1/contradictions/extract-tc
+Content-Type: application/json
+
+{
+  "description": "We need to make the car lighter to improve fuel efficiency, but lighter materials are more expensive and may compromise safety."
+}
+
+### Example 2: Material Engineering Challenge
+# Multi-parameter optimization in composite materials
+# AI identifies: Strength vs. Weight and Cost contradictions
+POST http://localhost:8000/api/v1/contradictions/extract-tc
+Content-Type: application/json
+
+{
+  "description": "To increase the strength of the material, we need to add more reinforcement fibers, but this makes it heavier and more expensive."
+}
+
+### Example 3: Surface Treatment Trade-off
+# Balance between performance and usability
+# Request more principles (limit=5) for broader solution options
+POST http://localhost:8000/api/v1/contradictions/extract-tc?limit=5
+Content-Type: application/json
+
+{
+  "description": "Making the surface smoother reduces friction and improves efficiency, but it becomes more difficult to grip and handle safely."
+}
+
+### Example 4: Multiple Contradictions in Complex System
+# Real-world problems often involve multiple contradictions
+# AI can handle complex descriptions with several trade-offs
+POST http://localhost:8000/api/v1/contradictions/extract-tc?limit=3
+Content-Type: application/json
+
+{
+  "description": "To increase the strength of the material, we need to add more reinforcement fibers, but this makes it heavier and more expensive. Additionally, making the surface smoother reduces friction and improves efficiency, but it becomes more difficult to grip and handle safely."
+}
+
+################################################################################
+# ADVANCED: Patent Analysis
+################################################################################
+# Extract technical contradictions directly from patent PDFs
+# Perfect for competitive analysis or learning from existing innovations
+################################################################################
+
+### Extract Technical Contradictions from Patent PDF
+# Provide a URL to a patent PDF - the AI will:
+# 1. Download and process the patent document
+# 2. Extract technical descriptions and claims
+# 3. Identify technical contradictions addressed by the invention
+# 4. Map them to TRIZ parameters and suggest relevant principles
+#
+# This is powerful for:
+# - Analyzing competitor patents
+# - Learning from solved problems
+# - Finding inspiration for similar challenges
+POST http://localhost:8000/api/v1/patents/extract-tc/from-url
+Content-Type: application/json
+
+{
+  "url": "https://cloud.mmysior.com/uploads/US_7967338_B1.pdf"
+}
+
+###
+# EXPECTED OUTPUT for the patent analysis above:
+#
+# [Paste your sample response here to show what the API returns]
+# This will typically include:
+# - Identified technical contradictions from the patent
+# - Mapped TRIZ parameters (improving vs. preserving)
+# - Recommended inventive principles with scores
+# - Relevant excerpts from the patent text
+###

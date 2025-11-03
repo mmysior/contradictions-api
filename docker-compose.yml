@@ -1,7 +1,7 @@
 services:
   backend:
     restart: always
-    build: 
+    build:
       context: ./backend
     ports:
       - "127.0.0.1:8000:8000"
@@ -11,11 +11,30 @@ services:
       - DEFAULT_MODEL=${DEFAULT_MODEL?Variable not set}
       - DEFAULT_PROVIDER=${DEFAULT_PROVIDER?Variable not set}
       - EMBEDDING_MODEL=${EMBEDDING_MODEL?Variable not set}
-      - TEMPLATES_DIR=/app/prompts
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
     volumes:
       - ./data:/app/data  # Mount custom data files
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/utils/health-check/"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/utils/health-check/')"]
       interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mcp-server:
+    restart: always
+    build:
+      context: ./mcp-server
+    ports:
+      - "127.0.0.1:8001:8001"
+    env_file:
+      - .env
+    environment:
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/')"]
+      interval: 100s
       timeout: 5s
       retries: 5

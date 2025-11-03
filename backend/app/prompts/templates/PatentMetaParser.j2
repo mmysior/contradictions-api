@@ -1,0 +1,58 @@
+---
+type: system
+version: 1
+author: Marek Piotr Mysior
+labels:
+    - latest
+tags:
+    - patents
+    - extraction
+config:
+  temperature: 0.1
+  model: gpt-4.1
+json_schema:
+  name: response_model
+  schema:
+    type: object
+    properties:
+      title:
+        type: string
+        description: The title of the patent document
+      abstract:
+        type: string
+        description: Content of the abstract as parsed from the title page
+      patent_no:
+        type: string
+        description: Unique identifier/number assigned to the patent
+      inventors:
+        type: array
+        items:
+          type: string
+        description: List of names of the patent inventors
+      published_date:
+        type: string
+        description: Date when the patent was officially published
+      ipc:
+        type: array
+        items:
+          type: string
+        description: International Patent Classification codes
+    required:
+      - title
+      - abstract
+      - patent_no
+      - inventors
+      - published_date
+      - ipc
+    additionalProperties: false
+  strict: true
+---
+Your task is to extract the following metadata from a patent title page image:
+- Title of the patent document
+- Abstract of the patent
+- Patent number
+- Names of the inventors
+- Date when the patent was published
+- International Patent Classification (IPC) codes
+
+Ensure that the extracted information is accurate and formatted correctly.

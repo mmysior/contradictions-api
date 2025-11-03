@@ -1,0 +1,48 @@
+---
+type: system
+version: 1
+author: Marek Piotr Mysior
+labels:
+    - latest
+tags:
+    - patents
+    - extraction
+config:
+  temperature: 0.1
+  model: gpt-4.1
+json_schema:
+  name: response_model
+  schema:
+    type: object
+    properties:
+      description:
+        type: string
+        description: The detailed description section of the patent, including background, summary, and detailed description of the invention
+      claims:
+        type: array
+        items:
+          type: string
+        description: List of patent claims, each claim as a separate string
+    required:
+      - description
+      - claims
+    additionalProperties: false
+  strict: true
+---
+Your task is to extract the following sections from patent document OCR text:
+
+1. **Description**: Extract the complete description section, which typically includes:
+  - Background of the invention
+  - Summary of the invention
+  - Detailed description of the invention
+
+2. **Claims**: Extract all patent claims as a list. Each claim should be a separate item in the array. Claims are typically numbered and define the legal scope of the patent protection.
+
+**Important notes:**
+- The input is raw OCR text which may contain formatting inconsistencies or OCR errors
+- Preserve the content as accurately as possible while cleaning up obvious OCR artifacts
+- For claims, split them into separate array items, one claim per item
+- Maintain the logical flow and structure of the description section
+- If section headers are present (e.g., "DESCRIPTION", "CLAIMS", "BACKGROUND"), use them to identify the relevant sections
+
+Ensure that the extracted information is accurate and formatted correctly.

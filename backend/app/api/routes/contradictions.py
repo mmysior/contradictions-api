@@ -1,10 +1,13 @@
-from typing import List
+import logging
 
 from fastapi import APIRouter, HTTPException, Query, status
 
-from app.core.config import settings
-from app.schemas.contradictions import TechnicalContradiction, TextInput
-from app.services.contradictions import extract_tc
+from app.services import contradictions as contradictions_service
+
+from ...core.config import settings
+from ...schemas.contradictions import TContradictions, TextInput
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(
     prefix="/contradictions",
@@ -19,22 +22,26 @@ router = APIRouter(
 
 @router.post(
     "/extract-tc",
-    response_model=List[TechnicalContradiction],
+    response_model=TContradictions,
     status_code=status.HTTP_200_OK,
 )
-def extract_technical_contradiction(
-    text_input: TextInput,
-    limit: int = Query(3, description="Maximum number of parameters to assign per effect", ge=1, le=10)
-) -> List[TechnicalContradiction]:
+def extract_technical_contradiction(text_input: TextInput) -> TContradictions:
     """Extract technical contradiction from text description."""
+    logger.info(
+        f"Extracting technical contradictions (text_length={len(text_input.description)})"
+    )
     try:
-        return extract_tc(
+        result = contradictions_service.extract_tc(
             text_input.description,
             model=settings.DEFAULT_MODEL,
             provider=settings.DEFAULT_PROVIDER,
-            max_parameters=limit,
         )
+        logger.info(
+            f"Successfully extracted {len(result.contradictions)} technical contradictions"
+        )
+        return result
     except Exception as e:
+        logger.error(f"Failed to extract technical contradiction: {str(e)}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to extract technical contradiction: {str(e)}",

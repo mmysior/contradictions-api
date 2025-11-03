@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "backend"
+		},
+		{
+			"path": "mcp-server"
+		}
+	],
+	"settings": {
+		"python.languageServer": "Pylance",
+		"ruff.enable": true,
+		"ruff.nativeServer": true,
+		"files.associations": {
+			"*.http": "http"
+		}
+	}
+}

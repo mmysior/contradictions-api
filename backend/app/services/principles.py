@@ -87,7 +87,9 @@ def get_principle_by_id(principle_id: int) -> Principle:
 def get_principle_by_name(principle_name: str) -> Principle:
     """Get a specific TRIZ inventive principle by name."""
     vector_store = get_vector_store()
-    principle = next((p for p in vector_store.principles if p.name.lower() == principle_name.lower()), None)
+    principle = next(
+        (p for p in vector_store.principles if p.name.lower() == principle_name.lower()), None
+    )
     if not principle:
         raise ValueError(f"Principle with name '{principle_name}' not found")
     return principle

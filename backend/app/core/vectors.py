@@ -48,6 +48,7 @@ class VectorStore:
     def search_parameters(
         self, query: str, top_k: int = 5
     ) -> List[Tuple[Parameter, float]]:
+        logger.info(f"Searching parameters with semantic similarity (query='{query}', top_k={top_k})")
         query_embedding = self.encoder.encode([query])
         similarities = cosine_similarity(query_embedding, self.parameter_embeddings)[0]
         top_indices = np.argsort(similarities)[::-1][:top_k]
@@ -56,6 +57,7 @@ class VectorStore:
     def search_principles(
         self, query: str, top_k: int = 5
     ) -> List[Tuple[Principle, float]]:
+        logger.info(f"Searching principles with semantic similarity (query='{query}', top_k={top_k})")
         query_embedding = self.encoder.encode([query])
         similarities = cosine_similarity(query_embedding, self.principle_embeddings)[0]
         top_indices = np.argsort(similarities)[::-1][:top_k]

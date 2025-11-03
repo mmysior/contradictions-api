@@ -1,112 +1,104 @@
-# TRIZ Contradiction API
+# TRIZ Contradiction Analysis System
 
 ![TRIZ API Architecture](docs/assets/scheme.png)
 
-*Technical Contradiction processing framework - the core workflow for analyzing problems and generating inventive solutions through the `/contradictions/` endpoint.*
+*Technical Contradiction processing framework - the core workflow for analyzing problems and generating inventive solutions.*
 
-A FastAPI backend for TRIZ (Theory of Inventive Problem Solving) Contradictions with semantic search and LLM-powered contradiction extraction.
+A comprehensive TRIZ (Theory of Inventive Problem Solving) system consisting of:
+- **Backend API**: FastAPI service for TRIZ analysis with semantic search and LLM-powered contradiction extraction
+- **MCP Server**: Model Context Protocol server that brings TRIZ tools to Claude Desktop and LM Studio
 
 ## Quick Start
 
-### Environment Setup
+### Prerequisites
 
-Create a `.env` file in the project root with required API keys:
+- Docker and Docker Compose
 
+### 1. Clone and Configure
+
+```bash
+git clone https://github.com/mmysior/contradictions-api.git
+cd contradictions-api
+cp .env.example .env
+```
+
+Edit `.env` with your API keys:
 ```bash
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### Run the API
+### 2. Start Everything
 
-**Using Docker (with custom data):**
 ```bash
-docker-compose up
+docker compose up -d
 ```
 
-**Using Justfile for development (with default data):**
-```bash
-just dev
+The API will be available at `http://localhost:8000/api/v1/` with interactive documentation at `http://localhost:8000/docs`.
+
+The MCP server will be available at `http://localhost:8001/mcp`.
+
+### 3. Connect MCP Server to Your AI Assistant
+
+**For Claude Desktop:**
+
+Add to your Claude Desktop config file:
+```json
+{
+  "mcpServers": {
+    "traicon": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "http://localhost:8001/mcp"
+      ]
+    }
+  }
+}
 ```
 
-API available at `http://localhost:8000` with docs at `/docs`
+**For LM Studio:**
 
-### Data Customization
-
-- **Docker deployment**: Uses custom data files from `./data/` directory
-- **Development mode**: Uses built-in default data files
-- Customize TRIZ parameters, principles, and matrix by editing files in `./data/`
-
-## Core Features
-
-- **TRIZ Parameters & Principles**: Semantic search across 39 parameters and 40 inventive principles
-- **Matrix Lookup**: Get principles from classical TRIZ contradiction matrix
-- **Technical Contradiction Extraction**: Extract contradictions from text using LLMs
-- **Patent Analysis**: Specialized extraction and classification for patent content
-
-## API Usage
-
-```python
-import httpx
-
-# Search parameters
-resp = httpx.get("http://localhost:8000/api/v1/parameters/search?q=strength&top_k=5")
-params = resp.json()
-
-# Matrix lookup  
-resp = httpx.get("http://localhost:8000/api/v1/principles/matrix?improving=1&preserving=3")
-principles = resp.json()
-
-# Extract contradictions with full TRIZ analysis
-resp = httpx.post("http://localhost:8000/api/v1/contradictions/extract-tc", 
-    json={"description": "Need lightweight but strong material"})
-contradictions = resp.json()
-
-# Extract contradictions with parameter limit
-resp = httpx.post("http://localhost:8000/api/v1/contradictions/extract-tc?limit=2", 
-    json={"description": "Need lightweight but strong material"})
-contradictions = resp.json()
-
-# Get principle by name
-resp = httpx.get("http://localhost:8000/api/v1/principles/by-name/Segmentation")
-principle = resp.json()
-
-# Get random principles for inspiration
-resp = httpx.get("http://localhost:8000/api/v1/principles/random?limit=5")
-random_principles = resp.json()
+Add to your `mcp.json` (Program tab → Install → Edit mcp.json):
+```json
+{
+  "mcpServers": {
+    "traicon": {
+      "url": "http://127.0.0.1:8001/mcp"
+    }
+  }
+}
 ```
 
-## Key Endpoints
+## Components
 
-### Parameters
-- `GET /parameters/` - List all TRIZ parameters
-- `GET /parameters/{id}` - Get parameter by ID
-- `GET /parameters/search` - Search parameters by semantic similarity
-  - Query parameters: `limit` (1-39, default: 5) - number of results to return
+### Backend API
+A FastAPI service providing:
+- Semantic search across 39 TRIZ parameters and 40 inventive principles
+- TRIZ contradiction matrix lookups
+- LLM-powered technical contradiction extraction
+- Patent analysis and classification
 
-### Principles  
-- `GET /principles/` - List all inventive principles
-- `GET /principles/{id}` - Get principle by ID
-- `GET /principles/by-name/{name}` - Get principle by name
-- `GET /principles/search` - Search principles by semantic similarity
-  - Query parameters: `limit` (1-40, default: 5) - number of results to return
-- `GET /principles/random` - Get random principles for inspiration
-  - Query parameters: `limit` (1-40, default: 5) - number of principles to return
-- `GET /principles/matrix` - Get principles from contradiction matrix
+See [backend/README.md](backend/README.md) for detailed API documentation.
 
-### Contradictions
-- `POST /contradictions/extract-tc` - Extract technical contradictions with full TRIZ analysis
-  - Query parameters: `limit` (1-10, default: 3) - limit parameters per effect
+### MCP Server
+Brings TRIZ analysis tools to AI assistants, providing:
+- Technical contradiction formulation
+- Parameter and principle search
+- Matrix-based principle recommendations
+- Random principle generation for inspiration
 
-### Patents
-- `POST /patents/extract` - Extract contradictions from patent content
-  - Query parameters: `limit` (1-10, default: 3) - limit parameters per effect
-- `POST /patents/classify` - Classify patent solutions to TRIZ principles
-  - Query parameters: `limit` (1-40, default: 10) - limit number of principles returned
+See [mcp-server/README.md](mcp-server/README.md) for MCP-specific documentation.
 
-### Utilities
-- `GET /utils/health-check` - API health check endpoint
+## Architecture
 
-See `backend/test.http` for complete API examples.
+The system follows a modular architecture:
+1. **Backend API** handles all TRIZ logic, LLM calls, and semantic search
+2. **MCP Server** exposes TRIZ tools to AI assistants via the Model Context Protocol
+3. **Docker Compose** runs both services together for easy deployment
+
+## Data Customization
+
+Customize TRIZ parameters, principles, and matrix by editing files in the `./data/` directory.
 
 ## License
 
@@ -114,7 +106,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Citation
 
-If you use TRIZ Contradiction API in your projects, please consider citing the following:
+If you use TRIZ Contradiction API in your projects, please consider citing:
 
 ```bibtex
 @software{TRIZ_Contradiction_API,
@@ -129,5 +121,4 @@ If you use TRIZ Contradiction API in your projects, please consider citing the f
 
 ## Funding
 
-This API was developed as part of research supported by the National Science Centre, Poland (grant no. 2024/08/X/ST8/00391).
-
+This system was developed as part of research supported by the National Science Centre, Poland (grant no. 2024/08/X/ST8/00391).
